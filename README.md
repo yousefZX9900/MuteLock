@@ -1,141 +1,72 @@
 # MuteLock
 
-Advanced Camera & Microphone Protection for iOS
-
-## Overview
-
-MuteLock is a powerful iOS tweak that provides multi-layer protection for your camera and microphone against unauthorized access. It uses advanced hooking techniques at two different system levels to ensure comprehensive protection.
+A tweak to block camera and microphone access on iOS.
 
 ## Features
 
-### Multi-Layer Protection
-- Layer A (AVFoundation): Hooks high-level APIs for camera and microphone access
-- Layer C (IOKit + AudioUnit): Low-level hardware access and audio input protection
+-  Block camera access
+-  Block microphone access  
+-  Temporary 5-minute unlock
+-  Activity logging
+-  Arabic & English support
 
-### Modern User Interface
-- Clean, modern design with iOS 15+ support
-- Real-time status indicators
-- Color-coded feedback for different states
-- Support for both Arabic and English languages
+## How It Works
 
-### Temporary Unlock
-- Quick 5-minute temporary unlock feature
-- Automatic re-lock after expiry
-- One-tap emergency access
+Two-layer protection system:
 
-### Activity Logging
-- Track all blocked access attempts
-- View app names and timestamps
-- Clear logs when needed
+| Layer | APIs | Purpose |
+|-------|------|---------|
+| **A** | AVCaptureDevice, AVCaptureSession, AVAudioSession | App-level blocking |
+| **B** | IOKit, AudioUnit, AudioQueue | Low-level blocking |
+
+## Requirements
+
+- iOS 15.0 - 16.5
+- Rootless jailbreak (Dopamine tested)
 
 ## Installation
 
-### Requirements
-- iOS 15.0 - 16.5
-- Jailbroken device (Dopamine, Palera1n rootless supported)
-- Cydia Substrate, Substitute, libhooker, or ElleKit
-
-### Steps
-1. Download the `.deb` file from [Releases](https://github.com/yousefZX9900/MuteLock/releases)
-2. Install using your preferred package manager (Sileo, Zebra, etc.)
-3. Respring your device
-4. Configure MuteLock in Settings
+1. Download `.deb` from [Releases](https://github.com/yousefZX9900/MuteLock/releases)
+2. Install via Sileo, Zebra, or Filza
+3. Respring
+4. Configure: Settings → MuteLock
 
 ## Usage
 
-### Basic Setup
-1. Open Settings -> MuteLock
-2. Enable MuteLock toggle
-3. Select what to protect:
-   - Lock Camera
-   - Lock Microphone
-   - Or both
+1. Settings → MuteLock
+2. Enable the tweak
+3. Toggle camera/microphone blocking
+4. Use "Unlock for 5 Minutes" when needed
 
-### Temporary Unlock
-- When you need temporary access, tap "Unlock for 5 Minutes"
-- All protection will be disabled for 5 minutes
-- Automatic re-lock after time expires
-- Tap "Lock Now" to re-enable protection immediately
+## Limitations
 
-## Technical Details
-
-### Architecture
-```
-User Application
-       ↓
-Layer A: AVFoundation Hooks
-(AVCaptureDevice, AVCaptureSession, AVAudioSession, UIImagePickerController)
-       ↓
-Layer C: Low-Level Hooks
-(IOKit - IOServiceOpen, AudioUnit - AudioUnitRender/AudioOutputUnitStart)
-       ↓
-Camera/Microphone Hardware
-```
-
-### Hook Points
-- `AVCaptureDevice` authorization methods
-- `AVCaptureSession` input management
-- `AVAudioSession` record permissions
-- `UIImagePickerController` camera access
-- `IOServiceOpen` for hardware-level camera blocking
-- `AudioUnitRender` / `AudioOutputUnitStart` for raw audio interception
-
-### Files and Locations
-- Preferences: `/var/jb/var/mobile/Library/Preferences/com.mutelock.settings.plist`
-- Logs: `/var/jb/var/mobile/Library/Preferences/com.mutelock.log.plist`
-- Bundle: `/var/jb/Library/PreferenceBundles/MuteLockPrefs.bundle`
-
-## Important Notes
-
-- This is software-level protection designed to prevent automated/silent access
-- Sophisticated attackers with system-level access may bypass these protections
-- MuteLock works best on rootless jailbreaks (Dopamine 2.0+, Palera1n)
-- Always keep your device updated and use trusted sources
+- Software-level protection (cannot protect against kernel-level access)
+- Some apps may crash if they don't handle permission denial gracefully
 
 ## Troubleshooting
 
-### Protection Not Working?
-1. Ensure you have resprung after installation
-2. Check that MuteLock is enabled
-3. Verify global protection switches are ON
+| Issue | Solution |
+|-------|----------|
+| Not working | Respring, verify toggles are enabled |
+| App crashing | Use temporary unlock for that app |
 
-### Apps Crashing?
-- Some apps may not handle permission denial gracefully
-- Use the Temporary Unlock feature if you need to use the app
-- Report persistent issues on GitHub
+## Changelog
 
-### Temporary Unlock Not Working?
-- Check system time/date settings
-- Disable and re-enable the feature
-- Respring if needed
+### v1.0.2
+-  Added: AudioQueue hooks for comprehensive mic protection
 
-## Contributing
+### v1.0.1
+- Initial release
 
-Contributions are welcome! Feel free to:
-- Report bugs
-- Suggest new features
-- Submit pull requests
-- Improve documentation
+## Contact
 
-## Contact and Support
-
-- Developer: Yousef
 - Twitter: [@yousef_dev921](https://twitter.com/yousef_dev921)
 - GitHub: [@yousefZX9900](https://github.com/yousefZX9900)
-- Support: [Buy Me a Coffee](https://buymeacoffee.com/yousefzx9900)
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- Thanks to the jailbreak community for their continued support
-- Special thanks to all beta testers
-- Inspired by privacy-focused security tools
+MIT License
 
 ---
 
 Made by Yousef
-
-If you find this project useful, consider supporting my work at https://buymeacoffee.com/yousefzx9900

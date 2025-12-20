@@ -1,6 +1,6 @@
 //
 //  MuteLockCommon.h
-//  MuteLock - Shared definitions (Optimized)
+//  MuteLock - Shared definitions
 //  By Yousef (@yousef_dev921)
 //
 
@@ -11,7 +11,7 @@
 #import <notify.h>
 
 // Version Info
-#define MUTELOCK_VERSION @"1.0.0"
+#define MUTELOCK_VERSION @"1.0.2"
 #define MUTELOCK_BUNDLE_ID @"com.mutelock.tweak"
 
 // Preferences Path (Rootless only)
@@ -63,10 +63,7 @@ static inline BOOL MuteLockIsCameraService(NSString *serviceName) {
             @"AppleH15CamIn",
             // Generic patterns
             @"CamIn",
-            @"AppleCamera",
-            @"IOMFB",        // Display/Camera pipeline
-            @"AppleAVE",     // Video encoder (used with camera)
-            @"AppleJPEG",    // JPEG encoder for photos
+            @"AppleISP",     // Image Signal Processor
             @"ISPFirmware"   // ISP firmware loading
         ];
     });

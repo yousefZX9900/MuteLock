@@ -3,52 +3,40 @@
 ## Supported Versions
 
 | Version | iOS Support | Status |
-| ------- | ----------- | ------ |
-| 1.0.x   | 15.0 - 16.5 | ✅ Supported |
+|---------|-------------|--------|
+| 1.0.x   | 15.0 - 16.5 | Active |
 
-## Reporting a Vulnerability
+## Protection Scope
 
-If you discover a security vulnerability in MuteLock, please report it responsibly:
+MuteLock blocks camera and microphone access through:
+- **App-level hooks** (AVFoundation APIs)
+- **Low-level hooks** (IOKit, AudioUnit, AudioQueue)
 
-1. **Do not** open a public GitHub issue
-2. Send a direct message to [@yousef_dev921](https://twitter.com/yousef_dev921) on Twitter
-3. Include:
-   - Description of the vulnerability
-   - Steps to reproduce
-   - Potential impact
-   - Any suggested fixes
+### What It Protects Against
+- Standard app camera/microphone access
+- Most tweaks attempting to access sensors
+- Background recording attempts
 
-I will respond within 48 hours and work with you to address the issue.
+### Out of Scope
+- Kernel-level exploits
+- Physical device access
+- Tweaks with higher injection priority
 
-## Security Model
+## Reporting Security Issues
 
-MuteLock provides **software-level protection** against camera and microphone access. Please understand the following:
+If you discover a bypass or security issue:
 
-### What MuteLock Protects Against
+1. **GitHub Issues**: [Open an issue](https://github.com/yousefZX9900/MuteLock/issues)
+2. **Twitter DM**: [@yousef_dev921](https://twitter.com/yousef_dev921)
 
-- ✅ Apps silently accessing camera/microphone
-- ✅ Background recording attempts
-- ✅ Automated/programmatic access via AVFoundation APIs
-- ✅ Low-level IOKit camera access
-- ✅ AudioUnit raw audio capture
-
-### Limitations
-
-- ⚠️ Root-level attacks by other tweaks with same or higher privilege
-- ⚠️ Kernel-level exploits
-- ⚠️ Physical access attacks
-- ⚠️ Hardware implants
+Please include:
+- iOS version and device model
+- Steps to reproduce the bypass
+- Any relevant logs
 
 ## Best Practices
 
-For maximum security:
+- Keep the tweak updated
+- Enable both camera and mic protection for maximum coverage
+- Use temporary unlock only when necessary
 
-1. Keep MuteLock updated
-2. Use only trusted jailbreak tools
-3. Be cautious with other tweaks that request camera/mic access
-4. Regularly check the activity logs
-5. Report any suspicious behavior
-
-## Acknowledgments
-
-Security researchers who responsibly disclose vulnerabilities will be acknowledged here (with permission).

@@ -3,10 +3,9 @@
 //  MuteLock - Camera & Microphone Kill Switch
 //  By Yousef (@yousef_dev921)
 //
-//  Three-layer defense:
+//  Two-layer defense:
 //  - Layer A: AVFoundation API hooks (UIKit apps)
-//  - Layer B: mediaserverd/tccd hooks (system daemons)
-//  - Layer C: IOKit + AudioUnit hooks (low-level)
+//  - Layer B: IOKit + AudioUnit + AudioQueue hooks (low-level)
 //
 
 #import <Foundation/Foundation.h>
@@ -201,7 +200,7 @@ static void logMicBlocked(void) {
 
 %end
 
-#pragma mark - Layer C: IOKit
+#pragma mark - Layer B: IOKit
 
 static kern_return_t (*orig_IOServiceOpen)(io_service_t service, task_port_t owningTask, uint32_t type, io_connect_t *connect);
 
@@ -250,7 +249,7 @@ static kern_return_t hook_IOServiceOpen(io_service_t service, task_port_t owning
     return orig_IOServiceOpen(service, owningTask, type, connect);
 }
 
-#pragma mark - Layer C: AudioUnit
+#pragma mark - Layer B: AudioUnit
 
 static OSStatus (*orig_AudioOutputUnitStart)(AudioUnit inUnit);
 static OSStatus (*orig_AudioUnitRender)(AudioUnit inUnit, AudioUnitRenderActionFlags *ioActionFlags, const AudioTimeStamp *inTimeStamp, UInt32 inBusNumber, UInt32 inNumberFrames, AudioBufferList *ioData);
@@ -303,6 +302,46 @@ static OSStatus hook_AudioUnitRender(AudioUnit inUnit, AudioUnitRenderActionFlag
     return orig_AudioUnitRender(inUnit, ioActionFlags, inTimeStamp, inBusNumber, inNumberFrames, ioData);
 }
 
+#pragma mark - Layer B: AudioQueue (Additional Microphone Protection)
+
+static OSStatus (*orig_AudioQueueNewInput)(
+    const AudioStreamBasicDescription *inFormat,
+    AudioQueueInputCallback inCallbackProc,
+    void *inUserData,
+    CFRunLoopRef inCallbackRunLoop,
+    CFStringRef inCallbackRunLoopMode,
+    UInt32 inFlags,
+    AudioQueueRef *outAQ);
+
+static OSStatus (*orig_AudioQueueStart)(AudioQueueRef inAQ, const AudioTimeStamp *inStartTime);
+
+static OSStatus hook_AudioQueueNewInput(
+    const AudioStreamBasicDescription *inFormat,
+    AudioQueueInputCallback inCallbackProc,
+    void *inUserData,
+    CFRunLoopRef inCallbackRunLoop,
+    CFStringRef inCallbackRunLoopMode,
+    UInt32 inFlags,
+    AudioQueueRef *outAQ) {
+    
+    if (shouldBlockMicNow()) {
+        logMicBlocked();
+        if (outAQ) *outAQ = NULL;
+        return kAudioQueueErr_Permissions;
+    }
+    return orig_AudioQueueNewInput(inFormat, inCallbackProc, inUserData, 
+                                    inCallbackRunLoop, inCallbackRunLoopMode, 
+                                    inFlags, outAQ);
+}
+
+static OSStatus hook_AudioQueueStart(AudioQueueRef inAQ, const AudioTimeStamp *inStartTime) {
+    if (shouldBlockMicNow()) {
+        logMicBlocked();
+        return kAudioQueueErr_Permissions;
+    }
+    return orig_AudioQueueStart(inAQ, inStartTime);
+}
+
 #pragma mark - Constructor
 
 static BOOL shouldInjectInProcess(void) {
@@ -339,7 +378,7 @@ static BOOL shouldInjectInProcess(void) {
             %init(LayerA_AVFoundation);
         }
         
-        // Layer C: Initialize IOKit hooks for low-level hardware access control
+        // Layer B: Initialize IOKit hooks for low-level hardware access control
         if (isCoreAudio || isUIKitProcess) {
             void *ioServiceOpenPtr = dlsym(RTLD_DEFAULT, "IOServiceOpen");
             if (ioServiceOpenPtr) {
@@ -350,7 +389,7 @@ static BOOL shouldInjectInProcess(void) {
             }
         }
         
-        // Layer C: Initialize AudioUnit hooks for raw audio processing interception
+        // Layer B: Initialize AudioUnit hooks for raw audio processing interception
         if (isCoreAudio || isUIKitProcess) {
             void *audioOutputUnitStartPtr = dlsym(RTLD_DEFAULT, "AudioOutputUnitStart");
             if (audioOutputUnitStartPtr) {
@@ -359,6 +398,18 @@ static BOOL shouldInjectInProcess(void) {
             void *audioUnitRenderPtr = dlsym(RTLD_DEFAULT, "AudioUnitRender");
             if (audioUnitRenderPtr) {
                 MSHookFunction(audioUnitRenderPtr, (void *)hook_AudioUnitRender, (void **)&orig_AudioUnitRender);
+            }
+        }
+        
+        // Layer B: Initialize AudioQueue hooks for additional microphone protection
+        if (isCoreAudio || isUIKitProcess) {
+            void *audioQueueNewInputPtr = dlsym(RTLD_DEFAULT, "AudioQueueNewInput");
+            if (audioQueueNewInputPtr) {
+                MSHookFunction(audioQueueNewInputPtr, (void *)hook_AudioQueueNewInput, (void **)&orig_AudioQueueNewInput);
+            }
+            void *audioQueueStartPtr = dlsym(RTLD_DEFAULT, "AudioQueueStart");
+            if (audioQueueStartPtr) {
+                MSHookFunction(audioQueueStartPtr, (void *)hook_AudioQueueStart, (void **)&orig_AudioQueueStart);
             }
         }
         

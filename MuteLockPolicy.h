@@ -1,7 +1,8 @@
 //
 //  MuteLockPolicy.h
 //  MuteLock
-//
+//  By Yousef (@yousef_dev921)
+//  
 
 #import <Foundation/Foundation.h>
 #import "MuteLockCommon.h"

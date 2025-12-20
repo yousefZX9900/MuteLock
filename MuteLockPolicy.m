@@ -1,6 +1,6 @@
 //
 //  MuteLockPolicy.m
-//  MuteLock - State management (Optimized with caching & timer)
+//  MuteLock
 //  By Yousef (@yousef_dev921)
 //
 

@@ -19,6 +19,6 @@ MuteLock_LIBRARIES = bsm
 include $(THEOS_MAKE_PATH)/tweak.mk
 
 # Preferences Bundle
-SUBPROJECTS += prefs
+SUBPROJECTS += Preferences
 
 include $(THEOS_MAKE_PATH)/aggregate.mk
