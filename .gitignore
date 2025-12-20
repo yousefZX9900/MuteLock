@@ -1,0 +1,41 @@
+# Theos build artifacts
+.theos/
+obj/
+packages/*.deb
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# IDE and editor files
+*.xcworkspace
+*.xcuserstate
+xcuserdata/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.vscode/
+
+# Backup files
+*~
+*.swp
+*.swo
+*.bak
+*.orig
+
+# Compiled binaries
+*.dylib
+*.a
+*.o
+
+# Debug files
+*.dSYM/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp

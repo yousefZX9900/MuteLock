@@ -1,0 +1,28 @@
+/* MuteLock - English */
+
+"SECTION_PROTECTION" = "PROTECTION";
+"ENABLE_MUTELOCK" = "Enable MuteLock";
+"LOCK_CAMERA" = "Lock Camera";
+"LOCK_MICROPHONE" = "Lock Microphone";
+
+"SECTION_TEMP_UNLOCK" = "TEMPORARY UNLOCK";
+"REQUEST_UNLOCK" = "Unlock for 5 Minutes";
+"TAP_TO_LOCK" = "Lock Now";
+"UNLOCK_FOOTER" = "Temporarily allow camera/microphone access for 5 minutes.";
+
+"SECTION_LOG" = "BLOCKED ATTEMPTS";
+"VIEW_LOG" = "View Log";
+"CLEAR_LOG" = "Clear Log";
+"LOG_EMPTY" = "No blocked attempts yet";
+"LOG_CLEARED" = "Log cleared";
+"LOG_CAMERA" = "Camera";
+"LOG_MIC" = "Microphone";
+
+"SECTION_DEVELOPER" = "DEVELOPER";
+"TWITTER" = "Twitter: @yousef_dev921";
+"DONATE" = "Buy Me a Coffee";
+
+"OK" = "OK";
+"ERROR" = "Error";
+"UNLOCKED" = "Unlocked";
+"UNLOCK_MESSAGE" = "Camera and microphone unlocked for 5 minutes.";

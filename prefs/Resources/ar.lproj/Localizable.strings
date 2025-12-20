@@ -1,0 +1,28 @@
+/* MuteLock - Arabic */
+
+"SECTION_PROTECTION" = "الحماية";
+"ENABLE_MUTELOCK" = "تفعيل MuteLock";
+"LOCK_CAMERA" = "قفل الكاميرا";
+"LOCK_MICROPHONE" = "قفل الميكروفون";
+
+"SECTION_TEMP_UNLOCK" = "فتح مؤقت";
+"REQUEST_UNLOCK" = "فتح لمدة 5 دقائق";
+"TAP_TO_LOCK" = "قفل الآن";
+"UNLOCK_FOOTER" = "السماح مؤقتاً بالوصول للكاميرا والميكروفون لمدة 5 دقائق.";
+
+"SECTION_LOG" = "محاولات الوصول المحظورة";
+"VIEW_LOG" = "عرض السجل";
+"CLEAR_LOG" = "مسح السجل";
+"LOG_EMPTY" = "لا توجد محاولات محظورة";
+"LOG_CLEARED" = "تم مسح السجل";
+"LOG_CAMERA" = "الكاميرا";
+"LOG_MIC" = "الميكروفون";
+
+"SECTION_DEVELOPER" = "المطور";
+"TWITTER" = "تويتر: @yousef_dev921";
+"DONATE" = "ادعمني";
+
+"OK" = "موافق";
+"ERROR" = "خطأ";
+"UNLOCKED" = "تم الفتح";
+"UNLOCK_MESSAGE" = "تم فتح الكاميرا والميكروفون لمدة 5 دقائق.";

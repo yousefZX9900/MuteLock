@@ -1,0 +1,11 @@
+Package: com.mutelock.tweak
+Name: MuteLock
+Version: 1.0.0
+Architecture: iphoneos-arm64
+Description: Block camera and microphone access from apps. Uses multi-layer hooks (AVFoundation, IOKit, AudioUnit) to prevent unwanted recording. Simple toggle for temporary unlock. Note: Software-level protection against automated attacks.
+Maintainer: Yousef <yousef_dev921@twitter>
+Author: Yousef
+Section: Tweaks
+Depends: firmware (>= 15.0), firmware (<< 17.0), mobilesubstrate | substitute | libhooker | ellekit, preferenceloader
+Icon: file:///var/jb/Library/PreferenceBundles/MuteLockPrefs.bundle/icon@2x.png
+Depiction: https://x.com/yousef_dev921
