@@ -1,0 +1,39 @@
+/* MuteLock - English */
+
+"SECTION_PROTECTION" = "PROTECTION";
+"ENABLE_MUTELOCK" = "Enable MuteLock";
+"LOCK_CAMERA" = "Lock Camera";
+"LOCK_MICROPHONE" = "Lock Microphone";
+
+"SECTION_TEMP_UNLOCK" = "TEMPORARY UNLOCK";
+"REQUEST_UNLOCK" = "Unlock for 5 Minutes";
+"TAP_TO_LOCK" = "Lock Now";
+"UNLOCK_FOOTER" = "Temporarily allow camera/microphone access for 5 minutes.";
+
+"SECTION_LOG" = "BLOCKED ATTEMPTS";
+"VIEW_LOG" = "View Log";
+"CLEAR_LOG" = "Clear Log";
+"LOG_EMPTY" = "No blocked attempts yet";
+"LOG_CAMERA" = "Camera";
+"LOG_MIC" = "Microphone";
+
+"SECTION_DEVELOPER" = "Developer";
+"TWITTER" = "Twitter (@yousef_dev921)";
+"DONATE" = "Donate (Buy me a Coffee)";
+
+"OK" = "OK";
+"UNLOCKED" = "Unlocked";
+"UNLOCK_MESSAGE" = "Camera and microphone unlocked for 5 minutes.";
+
+"DANGER_ZONE_FOOTER" = "Enabling Extreme Protection will KILL the media server (mediaserverd). Camera & Audio will completely stop working until you disable this and respring/reboot.";
+"DANGER_ZONE" = "Danger Zone";
+"UNKNOWN" = "Unknown";
+"EXTREME_PROTECTION" = "Extreme Protection";
+
+"WARNING" = "Warning";
+"EXTREME_PROTECTION_MSG" = "You are about to enable Extreme Protection. This will KILL the media server repeatedly.\n\n⚠️ Potential Risks:\n1- High battery drain.\n2- System instability.\n3- Risk of Boot Loop.\n\nDevice will Respring IMMEDIATELY to apply changes.\n\nAre you sure?";
+"DISABLE_EXTREME_TITLE" = "Disable Extreme Protection";
+"DISABLE_EXTREME_MSG" = "To restore media server functionality, a Respring is required.\n\nDevice will Respring immediately.";
+"DISABLE_AND_RESPRING" = "Disable & Respring";
+"CANCEL" = "Cancel";
+"TheNuclearOption" = "Enable (Nuclear Option)";

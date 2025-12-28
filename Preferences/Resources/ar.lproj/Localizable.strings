@@ -1,0 +1,39 @@
+/* MuteLock - Arabic */
+
+"SECTION_PROTECTION" = "الحماية";
+"ENABLE_MUTELOCK" = "تفعيل MuteLock";
+"LOCK_CAMERA" = "قفل الكاميرا";
+"LOCK_MICROPHONE" = "قفل الميكروفون";
+
+"SECTION_TEMP_UNLOCK" = "فتح مؤقت";
+"REQUEST_UNLOCK" = "فتح لمدة 5 دقائق";
+"TAP_TO_LOCK" = "قفل الآن";
+"UNLOCK_FOOTER" = "السماح مؤقتاً بالوصول للكاميرا والميكروفون لمدة 5 دقائق.";
+
+"SECTION_LOG" = "محاولات الوصول المحظورة";
+"VIEW_LOG" = "عرض السجل";
+"CLEAR_LOG" = "مسح السجل";
+"LOG_EMPTY" = "لا توجد محاولات محظورة";
+"LOG_CAMERA" = "الكاميرا";
+"LOG_MIC" = "الميكروفون";
+
+"SECTION_DEVELOPER" = "المطور";
+"TWITTER" = "تويتر: @yousef_dev921";
+"DONATE" = "ادعمني";
+
+"OK" = "موافق";
+"UNLOCKED" = "تم الفتح";
+"UNLOCK_MESSAGE" = "تم فتح الكاميرا والميكروفون لمدة 5 دقائق.";
+
+"DANGER_ZONE_FOOTER" = "تفعيل الحماية القصوى سيؤدي إلى قتل خادم الوسائط (mediaserverd). الكاميرا والصوت سيتوقفان تماماً عن العمل حتى تقوم بتعطيل الخيار وعمل Respring/Reboot.";
+"DANGER_ZONE" = "منطقة الخطر";
+"UNKNOWN" = "غير معروف";
+"EXTREME_PROTECTION" = "الحماية القصوى (Killer)";
+
+"WARNING" = "تحذير هام";
+"EXTREME_PROTECTION_MSG" = "أنت على وشك تفعيل وضع (الحماية القصوى). هذا الخيار سيقوم بقتل خادم الوسائط فوراً وبشكل متكرر.\n\n⚠️ المخاطر المحتملة:\n1- استنزاف عالٍ جداً للبطارية.\n2- عدم استقرار في النظام.\n3- احتمال تعليق الجهاز عند التشغيل (Boot Loop).\n\nسيقوم الجهاز بعمل Respring فوراً لتطبيق التغيير.\n\nهل أنت متأكد؟";
+"DISABLE_EXTREME_TITLE" = "تعطيل الحماية القصوى";
+"DISABLE_EXTREME_MSG" = "لإعادة خادم الوسائط للعمل بشكل طبيعي، يجب عمل Respring للجهاز.\n\nسيتم عمل Respring فوراً.";
+"DISABLE_AND_RESPRING" = "عطّل واعمل Respring";
+"CANCEL" = "إلغاء";
+"TheNuclearOption" = "تفعيل (الخيار النووي)";
