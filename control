@@ -1,6 +1,6 @@
 Package: com.mutelock.tweak
 Name: MuteLock
-Version: 1.1.0
+Version: 1.1.1
 Architecture: iphoneos-arm64
 Description: Advanced privacy shield. Blocks Camera & Mic using 'Smart Data Zeroing' and optional 'Extreme Protection' to kill media daemons. Features temporary unlock and logs.
 Maintainer: Yousef <yousef_dev921@twitter>

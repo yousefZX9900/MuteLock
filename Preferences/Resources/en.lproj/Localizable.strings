@@ -31,7 +31,7 @@
 "EXTREME_PROTECTION" = "Extreme Protection";
 
 "WARNING" = "Warning";
-"EXTREME_PROTECTION_MSG" = "You are about to enable Extreme Protection. This will KILL the media server repeatedly.\n\n⚠️ Potential Risks:\n1- High battery drain.\n2- System instability.\n3- Risk of Boot Loop.\n\nDevice will Respring IMMEDIATELY to apply changes.\n\nAre you sure?";
+"EXTREME_PROTECTION_MSG" = "You are about to enable Extreme Protection. This will KILL the media server repeatedly.\n\nPotential Risks:\n1- Battery drain.\n2- System instability.\n3- May cause Safe Mode loop / Requires Force Restart to disable.\n\nDevice will Respring IMMEDIATELY to apply changes.\n\nAre you sure?";
 "DISABLE_EXTREME_TITLE" = "Disable Extreme Protection";
 "DISABLE_EXTREME_MSG" = "To restore media server functionality, a Respring is required.\n\nDevice will Respring immediately.";
 "DISABLE_AND_RESPRING" = "Disable & Respring";

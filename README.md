@@ -49,7 +49,7 @@ MuteLock employs a multi-layered defense strategy:
 |-------|----------|
 | **Flashlight not working** | Ensure you are on v1.1.0+ (Data Zeroing fixed this). |
 | **App Crash** | Use "Unlock for 5 Minutes" then lock again. |
-| **Device Stuck (Boot Loop)** | Force Restart → Enter Safe Mode → Disable Extreme Protection. |
+| **Device Stuck (Respring Loop)** | Force Restart → Enter Safe Mode → Disable Extreme Protection. |
 
 ## Disclaimer
 
